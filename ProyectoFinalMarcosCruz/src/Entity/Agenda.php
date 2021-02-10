@@ -24,12 +24,6 @@ class Agenda
      */
     private $visitas;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Usuarios::class, inversedBy="agenda", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $usuario;
-
     public function __construct()
     {
         $this->visitas = new ArrayCollection();
@@ -69,18 +63,5 @@ class Agenda
 
         return $this;
     }
-
-    public function getUsuario(): ?Usuarios
-    {
-        return $this->usuario;
-    }
-
-    public function setUsuario(Usuarios $usuario): self
-    {
-        $this->usuario = $usuario;
-
-        return $this;
-    }
-
     
 }
